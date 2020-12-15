@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option csharp_namespace = "RJCGrpcService";
+
+package greet;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply);
+  
+  rpc GetStationFieldData (StationName) returns (StationData);
+
+  rpc WriteStation (ControlModel) returns (ControlResult);
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings.
+message HelloReply {
+  string message = 1;
+}
+
+
+message StationName {
+	string name = 1;
+}
+
+message StationData {
+	string data = 1;
+}
+
+message ControlModel {
+	string target = 1;
+	string action = 2;
+}
+
+message ControlResult {
+	string result = 1;
+}
